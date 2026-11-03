@@ -24,226 +24,204 @@ export async function GET() {
         const today = Number(today_views).toLocaleString("en-IN");
 
         // Generate SVG
-        const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg"
-            width="760" height="260" viewBox="0 0 760 260">
+        
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg"
+        width="900" height="350" viewBox="0 0 900 350"
+        role="img" aria-label="Pranav's GitHub profile views">
 
         <defs>
             <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#17152e"/>
-            <stop offset="100%" stop-color="#101c35"/>
+            <stop offset="0" stop-color="#211e43"/>
+            <stop offset="1" stop-color="#10172e"/>
             </linearGradient>
-
+            <linearGradient id="border" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#a855f7"/>
+            <stop offset="1" stop-color="#528bff"/>
+            </linearGradient>
             <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#bd91ff"/>
-            <stop offset="100%" stop-color="#7956df"/>
+            <stop offset="0" stop-color="#c084fc"/>
+            <stop offset="1" stop-color="#7045d9"/>
             </linearGradient>
-
             <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#79d9ff"/>
-            <stop offset="100%" stop-color="#527bdc"/>
+            <stop offset="0" stop-color="#67d3ff"/>
+            <stop offset="1" stop-color="#5268df"/>
             </linearGradient>
-
             <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fff3e9"/>
-            <stop offset="100%" stop-color="#d7c8e9"/>
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#c9c9e7"/>
             </linearGradient>
-
-            <filter id="glow">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-            </filter>
+            <clipPath id="card">
+            <rect x="1" y="1" width="898" height="348" rx="27"/>
+            </clipPath>
         </defs>
 
-        <!-- Background -->
-        <rect width="760" height="260" rx="22" fill="url(#bg)"/>
-        <rect x="1" y="1" width="758" height="258" rx="21"
-                fill="none" stroke="#6652a5" stroke-opacity=".65"/>
+        <rect width="900" height="350" rx="28" fill="url(#bg)"/>
+        <rect x="2" y="2" width="896" height="346" rx="26"
+            fill="none" stroke="url(#border)" stroke-width="2"/>
 
-        <!-- Stars -->
-        <g fill="#d8c3ff">
-            <circle cx="25" cy="32" r="2"/>
-            <circle cx="76" cy="55" r="1.5"/>
-            <circle cx="308" cy="29" r="2"/>
-            <circle cx="340" cy="65" r="1.5"/>
-            <path d="M286 43v10m-5-5h10" stroke="#c7a6ff"
-                stroke-width="1.5"/>
-            <path d="M713 31v12m-6-6h12" stroke="#9fdcff"
-                stroke-width="1.5"/>
+        <g clip-path="url(#card)">
+            <circle cx="155" cy="190" r="135" fill="#7651c9" opacity=".19"/>
+
+            <!-- Decorative stars -->
+            <g fill="#f6c66b">
+            <circle cx="76" cy="60" r="2"/>
+            <circle cx="225" cy="48" r="2"/>
+            <circle cx="390" cy="65" r="2"/>
+            <circle cx="350" cy="105" r="3"/>
+            </g>
+
+            <!-- Plant -->
+            <g stroke="#91b96d" stroke-width="4" stroke-linecap="round">
+            <path d="M55 290 Q55 230 52 190"/>
+            <path d="M55 250 Q22 225 25 205 Q51 208 55 250" fill="#9dc878"/>
+            <path d="M54 230 Q83 194 102 203 Q91 230 54 230" fill="#a6d17c"/>
+            <path d="M53 272 Q20 258 17 238 Q44 239 53 272" fill="#8dbb6b"/>
+            <path d="M56 270 Q82 240 101 249 Q85 274 56 270" fill="#a6d17c"/>
+            </g>
+            <path d="M35 285 L78 285 L73 328 L40 328 Z" fill="#e9e7ff"/>
+            <path d="M31 283 H82 V291 H31 Z" fill="#ffffff"/>
+
+            <!-- Cat tail -->
+            <path d="M142 287 C90 286 102 230 132 240
+            C157 248 127 277 155 286"
+            fill="#b8b4dc" stroke="#17152c" stroke-width="5"/>
+
+            <!-- Cat body -->
+            <path d="M126 292 C112 255 125 207 155 185
+            C183 166 245 176 266 219
+            C289 264 268 307 244 324
+            L138 324 Z"
+            fill="url(#fur)" stroke="#17152c" stroke-width="5"/>
+
+            <!-- Cat ears -->
+            <path d="M140 183 L137 116 Q140 91 160 111
+            L194 148 Z"
+            fill="url(#fur)" stroke="#17152c" stroke-width="5"/>
+            <path d="M216 147 L248 111 Q266 94 271 119
+            L269 184 Z"
+            fill="url(#fur)" stroke="#17152c" stroke-width="5"/>
+            <path d="M150 151 L150 125 L178 151 Z" fill="#f5a6bb"/>
+            <path d="M237 151 L258 124 L259 157 Z" fill="#f5a6bb"/>
+
+            <!-- Cat head -->
+            <ellipse cx="204" cy="200" rx="80" ry="77"
+            fill="url(#fur)" stroke="#17152c" stroke-width="5"/>
+
+            <!-- Fur markings -->
+            <path d="M180 135 Q193 156 184 175
+            M208 125 Q220 151 211 173
+            M235 136 Q243 154 239 173"
+            fill="none" stroke="#8b88b6" stroke-width="10"
+            stroke-linecap="round"/>
+
+            <!-- Face -->
+            <g fill="none" stroke="#17152c" stroke-width="5"
+            stroke-linecap="round">
+            <path d="M164 205 Q175 191 187 204"/>
+            <path d="M220 204 Q232 191 244 205"/>
+            <path d="M195 220 Q203 226 211 220"/>
+            <path d="M203 222 Q194 239 184 229"/>
+            <path d="M203 222 Q213 239 223 229"/>
+            </g>
+            <ellipse cx="203" cy="216" rx="5" ry="4" fill="#f58da9"/>
+            <ellipse cx="161" cy="222" rx="17" ry="10" fill="#f49db4" opacity=".45"/>
+            <ellipse cx="246" cy="222" rx="17" ry="10" fill="#f49db4" opacity=".45"/>
+
+            <!-- Headphones -->
+            <path d="M126 201 V171 Q126 104 204 104
+            Q281 104 281 171 V201"
+            fill="none" stroke="#17152c" stroke-width="13"
+            stroke-linecap="round"/>
+            <path d="M126 201 V171 Q126 111 204 111
+            Q274 111 274 171 V201"
+            fill="none" stroke="#9571e9" stroke-width="7"
+            stroke-linecap="round"/>
+            <rect x="113" y="172" width="29" height="67" rx="13"
+            fill="#24213e" stroke="#111126" stroke-width="5"/>
+            <rect x="267" y="172" width="29" height="67" rx="13"
+            fill="#24213e" stroke="#111126" stroke-width="5"/>
+            <circle cx="127" cy="205" r="9" fill="#c3a5ff"/>
+            <circle cx="281" cy="205" r="9" fill="#c3a5ff"/>
+
+            <!-- Laptop -->
+            <path d="M180 255 Q180 248 188 248 H320
+            Q328 248 326 256 L311 319 H167 Z"
+            fill="#211c3b" stroke="#111126" stroke-width="5"/>
+            <path d="M158 320 H328 Q334 320 334 325
+            H151 Q151 320 158 320"
+            fill="#9b75e9"/>
+            <path d="M244 278 L255 268 L266 278
+            M255 268 V292"
+            fill="none" stroke="#c6a5ff" stroke-width="4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Coffee mug -->
+            <rect x="340" y="281" width="37" height="42" rx="7"
+            fill="#f3edff"/>
+            <path d="M377 289 Q397 286 391 306 Q388 316 377 313"
+            fill="none" stroke="#f3edff" stroke-width="6"/>
+            <path d="M349 273 Q342 263 350 253
+            M364 273 Q357 262 365 250"
+            fill="none" stroke="#c4b2f5" stroke-width="3"
+            stroke-linecap="round"/>
+
+            <!-- Desk -->
+            <path d="M15 327 Q175 321 407 327"
+            fill="none" stroke="#8d64d9" stroke-width="4"
+            stroke-linecap="round"/>
+
+            <!-- Profile heading -->
+            <g fill="#ffffff" font-family="Arial, Helvetica, sans-serif">
+            <text x="445" y="92" font-size="31" font-weight="700">
+                pranavsw
+            </text>
+            <text x="446" y="121" font-size="13" letter-spacing="6"
+                fill="#bba7ff" font-weight="600">
+                PROFILE VIEWS
+            </text>
+            </g>
+            <path d="M445 132 H795" stroke="#5e58a0" stroke-width="1" opacity=".5"/>
+
+            <!-- Total views -->
+            <rect x="437" y="158" width="207" height="132" rx="18"
+            fill="#30234f" fill-opacity=".55"
+            stroke="url(#purple)" stroke-width="2.5"/>
+            <circle cx="464" cy="188" r="10" fill="none"
+            stroke="#c084fc" stroke-width="3"/>
+            <circle cx="464" cy="188" r="3.5" fill="#c084fc"/>
+            <text x="482" y="193" fill="#e9e3ff"
+            font-size="16" font-family="Arial, sans-serif">
+            Total Views
+            </text>
+            <text x="458" y="254" fill="#ffffff"
+            font-size="39" font-weight="700"
+            font-family="Arial, sans-serif">${total}</text>
+
+            <!-- Today views -->
+            <rect x="661" y="158" width="207" height="132" rx="18"
+            fill="#202d52" fill-opacity=".55"
+            stroke="url(#blue)" stroke-width="2.5"/>
+            <rect x="684" y="177" width="19" height="20" rx="4"
+            fill="none" stroke="#67d3ff" stroke-width="2.5"/>
+            <path d="M684 184 H703 M690 174 V180 M698 174 V180"
+            stroke="#67d3ff" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="715" y="193" fill="#e9f3ff"
+            font-size="16" font-family="Arial, sans-serif">
+            Today Views
+            </text>
+            <text x="682" y="254" fill="#ffffff"
+            font-size="39" font-weight="700"
+            font-family="Arial, sans-serif">${today}</text>
+
+            <!-- Footer -->
+            <text x="650" y="323" text-anchor="middle"
+            fill="#777da8" font-size="10"
+            font-family="Arial, sans-serif" letter-spacing="1.5">
+            BUILT WITH ♥ BY PRANAV
+            </text>
         </g>
+        </svg>`;
 
-        <!-- Small decorative plant -->
-        <g transform="translate(38 72)">
-            <path d="M20 75Q12 38 0 25M20 75Q38 35 48 20"
-                fill="none" stroke="#71bd91" stroke-width="3"/>
-            <ellipse cx="3" cy="25" rx="9" ry="17"
-                    transform="rotate(-35 3 25)" fill="#64b98c"/>
-            <ellipse cx="47" cy="20" rx="9" ry="17"
-                    transform="rotate(35 47 20)" fill="#83d6a3"/>
-            <ellipse cx="18" cy="47" rx="8" ry="14"
-                    transform="rotate(-30 18 47)" fill="#498d76"/>
-            <path d="M5 77h34l-5 13H10z" fill="#a77cdb"/>
-            <path d="M10 77h24" stroke="#e3bdff" stroke-width="3"/>
-        </g>
-
-        <!-- Desk -->
-        <path d="M15 215H745V239Q745 249 735 249H25Q15 249 15 239Z"
-                fill="#302b53"/>
-        <path d="M15 215H745" stroke="#9c80ec" stroke-width="2"/>
-        <path d="M20 220H740" stroke="#6d5d9e" stroke-width="1"/>
-
-        <!-- Cat body -->
-        <ellipse cx="189" cy="194" rx="77" ry="39"
-                fill="url(#fur)" stroke="#55456f" stroke-width="3"/>
-
-        <!-- Cat tail -->
-        <path d="M130 190Q83 199 91 159Q96 137 117 148"
-                fill="none" stroke="#e9dced" stroke-width="15"
-                stroke-linecap="round"/>
-        <path d="M130 190Q83 199 91 159Q96 137 117 148"
-                fill="none" stroke="#a99abf" stroke-width="5"
-                stroke-linecap="round"/>
-
-        <!-- Cat ears -->
-        <path d="M135 112L127 64Q126 56 135 62L175 91Z"
-                fill="#eee1f1" stroke="#675477" stroke-width="3"/>
-        <path d="M219 92L255 62Q264 56 263 68L254 119Z"
-                fill="#eee1f1" stroke="#675477" stroke-width="3"/>
-        <path d="M138 91L135 75L157 94Z" fill="#f4a7bc"/>
-        <path d="M238 94L256 75L252 101Z" fill="#f4a7bc"/>
-
-        <!-- Cat head -->
-        <ellipse cx="195" cy="137" rx="73" ry="65"
-                fill="url(#fur)" stroke="#675477" stroke-width="3"/>
-
-        <!-- Cat forehead stripes -->
-        <path d="M169 78Q158 103 170 115M194 73Q185 94 193 105
-                M220 81Q225 99 216 113"
-                fill="none" stroke="#9a88aa" stroke-width="8"
-                stroke-linecap="round"/>
-
-        <!-- Cheeks -->
-        <ellipse cx="155" cy="153" rx="17" ry="9"
-                fill="#f5a7ba" opacity=".45"/>
-        <ellipse cx="235" cy="153" rx="17" ry="9"
-                fill="#f5a7ba" opacity=".45"/>
-
-        <!-- Cat eyes -->
-        <path d="M158 131Q166 119 176 131"
-                fill="none" stroke="#342d42" stroke-width="4"
-                stroke-linecap="round"/>
-        <path d="M213 131Q223 119 232 131"
-                fill="none" stroke="#342d42" stroke-width="4"
-                stroke-linecap="round"/>
-
-        <!-- Nose and smile -->
-        <path d="M190 145Q195 140 200 145Q195 151 190 145"
-                fill="#e88caa"/>
-        <path d="M195 150Q187 161 180 153M195 150Q203 161 210 153"
-                fill="none" stroke="#55445b" stroke-width="2.5"
-                stroke-linecap="round"/>
-
-        <!-- Whiskers -->
-        <g stroke="#8b789a" stroke-width="1.7" stroke-linecap="round">
-            <path d="M143 145L116 139M143 153L114 155"/>
-            <path d="M247 145L274 139M247 153L276 155"/>
-        </g>
-
-        <!-- Headphones -->
-        <path d="M119 135Q108 55 193 57Q272 56 269 135"
-                fill="none" stroke="#41365f" stroke-width="13"
-                stroke-linecap="round"/>
-        <path d="M119 135Q108 55 193 57Q272 56 269 135"
-                fill="none" stroke="#b08aff" stroke-width="4"
-                stroke-linecap="round"/>
-
-        <rect x="108" y="119" width="24" height="48" rx="10"
-                fill="#65518d" stroke="#c3a1ff" stroke-width="3"/>
-        <rect x="257" y="119" width="24" height="48" rx="10"
-                fill="#65518d" stroke="#c3a1ff" stroke-width="3"/>
-        <circle cx="120" cy="143" r="5" fill="#bda1ff"/>
-        <circle cx="269" cy="143" r="5" fill="#bda1ff"/>
-
-        <!-- Laptop -->
-        <path d="M159 165Q159 159 166 159H260Q267 159 267 165V211H159Z"
-                fill="#282441" stroke="#a78bfa" stroke-width="2.5"/>
-        <path d="M148 212H278L290 221H138Z"
-                fill="#8170ba" stroke="#b49cff" stroke-width="2"/>
-        <path d="M195 215H231" stroke="#d8caff"
-                stroke-width="2" stroke-linecap="round"/>
-
-        <!-- Laptop logo -->
-        <path d="M203 176L195 183L203 190M229 176L237 183L229 190
-                M222 172L211 194"
-                fill="none" stroke="#c7a6ff" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Coffee mug -->
-        <g transform="translate(48 174)">
-            <rect x="0" y="0" width="35" height="32" rx="5"
-                fill="#d4a7ed" stroke="#f0d4ff" stroke-width="2"/>
-            <path d="M35 7Q52 5 47 21Q44 29 35 26"
-                fill="none" stroke="#d4a7ed" stroke-width="5"/>
-            <path d="M10 -5Q4 -14 12 -21M23 -5Q17 -14 25 -21"
-                fill="none" stroke="#c5b1e8" stroke-width="2"
-                stroke-linecap="round"/>
-            <path d="M11 13L17 19L23 13" fill="none"
-                stroke="#75548d" stroke-width="2"/>
-        </g>
-
-        <!-- Right dashboard heading -->
-        <text x="321" y="56" fill="#d8c3ff"
-                font-family="monospace" font-size="19"
-                font-weight="bold">~/ profile_views</text>
-        <text x="321" y="77" fill="#8991b5"
-                font-family="Arial, sans-serif" font-size="10"
-                letter-spacing="2">A LITTLE VISIT COUNTER</text>
-
-        <!-- Total views card -->
-        <rect x="320" y="94" width="195" height="91" rx="14"
-                fill="#292343" stroke="#9271dc" stroke-width="1.5"/>
-        <circle cx="345" cy="119" r="11" fill="#a98aff" opacity=".2"/>
-        <path d="M335 119Q345 107 355 119Q345 131 335 119Z"
-                fill="none" stroke="#c3a5ff" stroke-width="1.8"/>
-        <circle cx="345" cy="119" r="3" fill="#c3a5ff"/>
-        <text x="365" y="123" fill="#c9b9ec"
-                font-family="Arial, sans-serif" font-size="11"
-                letter-spacing="1">TOTAL VIEWS</text>
-        <text x="337" y="161" fill="#ffffff"
-                font-family="Arial, sans-serif" font-size="30"
-                font-weight="bold">${total}</text>
-
-        <!-- Today views card -->
-        <rect x="530" y="94" width="195" height="91" rx="14"
-                fill="#1d3049" stroke="#679edc" stroke-width="1.5"/>
-        <rect x="545" y="109" width="19" height="19" rx="3"
-                fill="none" stroke="#7dd3fc" stroke-width="2"/>
-        <path d="M545 116H564M550 105V112M559 105V112"
-                stroke="#7dd3fc" stroke-width="2"
-                stroke-linecap="round"/>
-        <text x="575" y="123" fill="#b3d6ee"
-                font-family="Arial, sans-serif" font-size="11"
-                letter-spacing="1">TODAY VIEWS</text>
-        <text x="547" y="161" fill="#ffffff"
-                font-family="Arial, sans-serif" font-size="30"
-                font-weight="bold">${today}</text>
-
-        <!-- Bottom status -->
-        <circle cx="334" cy="211" r="4" fill="#73e4ac"/>
-        <text x="345" y="215" fill="#a6b6ce"
-                font-family="Arial, sans-serif" font-size="11">
-            Made with ♥ by pranavsw
-        </text>
-
-        <text x="718" y="215" fill="#9280bf"
-                font-family="monospace" font-size="10"
-                text-anchor="end">:3</text>
-
-        </svg>
-        `;
 
         return new Response(svg, {
             status: 200,
