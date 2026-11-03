@@ -86,8 +86,9 @@ export async function GET() {
             status: 200,
             headers: {
                 "Content-Type": "image/svg+xml; charset=utf-8",
-                "Cache-Control": "no-store, no-cache, must-revalidate",
+                "Cache-Control": "no-cache, no-store, must-revalidate",
                 "Pragma": "no-cache",
+                "Expires": "0",
             },
         });
 
